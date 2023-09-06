@@ -1,0 +1,19 @@
+version: "3.8"
+
+services: 
+    mc:
+        image: itzg/minecraft-server
+        environment:
+            EULA: true
+            TYPE: PAPER
+            ONLINE_MODE: false
+        networks:
+          - waterfall
+        volumes:
+          - data:/data      
+
+volumes:
+  data:
+networks:
+  waterfall:
+    external: true

@@ -1,0 +1,22 @@
+version: "3.8"
+
+services: 
+  proxy:
+    image: itzg/bungeecord
+    environment:
+      TYPE: WATERFALL
+    ports:
+      - "25565:25577"
+    networks:
+      - waterfall
+    volumes:
+      - ./config.yml:/config/config.yml
+      - data:/server
+
+volumes:
+  data:
+    
+networks:
+  waterfall:
+    # to simplify sharing-by-name with across projects
+    name: waterfall
